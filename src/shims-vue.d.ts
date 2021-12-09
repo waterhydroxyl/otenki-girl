@@ -6,3 +6,4 @@ declare module '*.vue' {
 }
 declare module '*.json';
 declare module 'xml2json';
+declare module '*.png';
