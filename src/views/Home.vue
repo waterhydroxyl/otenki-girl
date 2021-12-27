@@ -1,17 +1,23 @@
 <template>
   <div class="home">
-    <HelloWorld />
+    <WeatherMap />
+    <!-- <CarouselCpn /> -->
+    <wish-card />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from '@/components/weatherMap.vue'; // @ is an alias to /src
+import WeatherMap from '@/components/WeatherMap.vue'; // @ is an alias to /src
+// import CarouselCpn from '@/components/CarouselCpn.vue';
+import WishCard from '@/components/WishCard.vue';
 
 export default defineComponent({
   name: 'Home',
   components: {
-    HelloWorld,
+    WeatherMap,
+    // CarouselCpn,
+    WishCard,
   },
 });
 </script>
