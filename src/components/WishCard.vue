@@ -30,7 +30,7 @@
         </el-form-item>
 
         <el-form-item label="留言" class="pick-adress">
-          <el-input v-model="form.desc" type="textarea"></el-input>
+          <el-input v-model="form.comment" type="textarea"></el-input>
         </el-form-item>
         <!-- <el-form-item class="pick-adress"> -->
         <!-- </el-form-item> -->
@@ -42,16 +42,23 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 
+import { postNewItem } from '@/api';
+
 export default defineComponent({
   setup() {
     const form = reactive({
       date: '',
       address: '',
       nickname: '',
-      desc: '',
+      comment: '',
     });
+
+    const onSubmit = () => {
+      postNewItem(form);
+    };
     return {
       form,
+      onSubmit,
     };
   },
 });

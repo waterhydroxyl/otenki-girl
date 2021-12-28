@@ -30,6 +30,13 @@ module.exports = {
           },
           changeOrigin: true,
         },
+        '^/myApi': {
+          target: 'http://localhost:8002',
+          pathRewrite: {
+            '^/myApi': '',
+          },
+          changeOrigin: true,
+        },
       },
     },
   },

@@ -6,4 +6,10 @@ const request = axios.create({
   timeout: 5000,
 });
 
-export default request;
+const myRequest = axios.create({
+  //http://flash.weather.com.cn/wmaps/xml/china.xml
+  baseURL: 'myApi',
+  timeout: 5000,
+});
+
+export { request, myRequest };
