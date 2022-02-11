@@ -45,7 +45,7 @@ import { defineComponent, reactive } from 'vue';
 import { postNewItem } from '@/api';
 
 export default defineComponent({
-  setup() {
+  setup(props, { emit }) {
     const form = reactive({
       date: '',
       address: '',
@@ -54,7 +54,11 @@ export default defineComponent({
     });
 
     const onSubmit = () => {
-      postNewItem(form);
+      postNewItem(form).then((res) => {
+        if (res.status === 200) {
+          emit('newpost');
+        }
+      });
     };
     return {
       form,

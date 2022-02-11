@@ -1,4 +1,4 @@
 import getChinaWeatherDate from './mapRequest';
-import { postNewItem } from './commentPost';
+import { postNewItem, getItems } from './comment';
 
-export { getChinaWeatherDate, postNewItem };
+export { getChinaWeatherDate, postNewItem, getItems };

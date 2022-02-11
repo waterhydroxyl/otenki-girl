@@ -13,4 +13,12 @@ const postNewItem = (data: item) => {
     data: data,
   });
 };
-export { postNewItem };
+
+const getItems = () => {
+  return myRequest({
+    url: '/comment',
+    method: 'GET',
+  });
+};
+
+export { postNewItem, getItems };

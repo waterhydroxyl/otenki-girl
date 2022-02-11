@@ -41,7 +41,7 @@ import Echart from '../base-ui/echart';
 
 import { getChinaWeatherDate } from '@/api';
 import xml2jsonFn from '@/utils/xml2json';
-import { convertData } from '../utils/convert-data';
+import { convertData } from '@/utils/convert-data';
 import { mapWeatherData, mapTeamplateData, TeamplateData, WeatherData } from '../utils/mapMapData';
 
 import weatherImage from '../assets/weather';
@@ -70,7 +70,6 @@ onBeforeMount(async () => {
   // state.WearherDate = xml2jsonFn(data);
   data = xml2jsonFn(data);
   data = data.china.city;
-  console.log(data);
   state.WearherDateArr = mapWeatherData(data);
   state.TeamplateDateArr = mapTeamplateData(data);
 });
@@ -90,7 +89,7 @@ const options = computed(() => {
       text: '各省首府天气',
       left: 'center',
       textStyle: {
-        color: 'purple',
+        color: '#425aac',
       },
     },
     tooltip: {
@@ -128,7 +127,6 @@ const options = computed(() => {
         coordinateSystem: 'geo',
         data: convertData(state.WearherDateArr),
         symbol: (value: any) => {
-          console.log(value);
           value = value[2];
           switch (value) {
             case '晴':
@@ -148,7 +146,7 @@ const options = computed(() => {
             case '小雨转多云':
               return weatherImage.rainToclouds;
             default:
-              break;
+              return weatherImage.sunToClouds;
           }
         },
         symbolSize: 16,
@@ -174,6 +172,13 @@ const options = computed(() => {
 
 const options2 = computed(() => {
   return {
+    title: {
+      text: '各省平均气温',
+      left: 'center',
+      textStyle: {
+        color: '#425aac',
+      },
+    },
     tooltip: {
       triggerOn: 'click',
       formatter: function (e: any) {
